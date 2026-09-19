@@ -1,6 +1,6 @@
-package com.healthcare.pharmacy.entity;
+package com.healthcare.pharmacy.dto;
 
-import jakarta.persistence.*;
+import com.healthcare.pharmacy.entity.Prescription;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,23 +12,14 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name="patient")
-public class Patient {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PatientDto {
     private Long id;
 
-    @Column(name="first_name")
     private String firstName;
 
-    @Column(name="last_name")
     private String lastName;
 
-    @Column(name="email_id", nullable = false, unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "patient")
     private List<Prescription> prescriptions;
 }
